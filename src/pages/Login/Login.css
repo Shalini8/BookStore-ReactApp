@@ -1,0 +1,28 @@
+.or {
+    text-align: center;
+}
+
+.btns-div {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.btn-tag {
+    margin: 0;
+}
+
+.fgButtons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.textfield {
+    margin-bottom: 20px;
+} 
+/* .fb-btn{
+    background-color: "#4266B2" !important;
+    color: "#ffffff" !important;
+    text-transform: "capitalize" !important;
+    padding: "10px 30px"!important;
+} */
