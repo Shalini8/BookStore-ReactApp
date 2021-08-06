@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  background-color: #919191;
+  /* opacity: 0.31; */
+}
+.imageContainer {
+  top: 185px;
+  left: 320px;
+  width: 500px;
+  height: 300px;
+  background: #e0dddd 0% 0% no-repeat padding-box;
+  border-radius: 21px;
+  /* opacity: 1; */
+}
+.basket {
+   
+  width: 200px;
+  height: 200px;
+  border: none;
+  border-radius: 100px;
+}
+.image{
+    padding: 40px;
+    display: flex;
+
+}

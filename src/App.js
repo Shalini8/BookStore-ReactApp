@@ -1,9 +1,14 @@
 import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Bookstore from './pages/Bookstore/Bookstore';
+
 
 function App() {
   return (
     <div className="App">
-      <h1>hellooo</h1>
+      <Router> 
+      <Route path="/" component={Bookstore}></Route>
+     </Router>
     </div>
   );
 }
