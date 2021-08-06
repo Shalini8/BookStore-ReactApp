@@ -12,12 +12,8 @@ export default function Signin() {
   const [showPassword, setShowPassword] = React.useState("false");
 
   const handleClickShowPassword = () => {
-    if (showPassword) {
-      setShowPassword(false);
-    } else {
-      setShowPassword(true);
-    }
-  };
+    (showPassword) ? setShowPassword(false): setShowPassword(true);
+   };
 
   return (
     <div>

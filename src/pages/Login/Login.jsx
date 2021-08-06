@@ -11,12 +11,9 @@ export default function Login() {
   const [showPassword, setShowPassword] = React.useState("false");
 
   const handleClickShowPassword = () => {
-    if (showPassword) {
-      setShowPassword(false);
-    } else {
-      setShowPassword(true);
-    }
-  };
+     (showPassword) ? setShowPassword(false): setShowPassword(true);
+    };
+    
   return (
     <div>
       <div className="textfield">
