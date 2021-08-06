@@ -8,6 +8,9 @@ import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
 export default function Login() {
+  const validEmail = new RegExp("^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$");
+  const validPassword = new RegExp("^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$");
+
   const [showPassword, setShowPassword] = React.useState("false");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -24,18 +27,26 @@ export default function Login() {
     setPassword(e.target.value);
   };
   const validation = () => {
+    console.log("here");
     let isError = false;
-     email === "" ? setEmailError(false) : setEmailError(true);
-    password === "" ? setPasswordError(false) : setPasswordError(true);
-
-      isError = emailError || passwordError;
-    return (isError);
+    if (email === "" || !validEmail.test(email)) {
+      setEmailError(false);
+    } else {
+      setEmailError(true);
+    }
+    if (password === "" || !validPassword.test(password)) {
+      setPasswordError(false);
+    } else {
+      setPasswordError(true);
+    }
+    isError = emailError || passwordError;
+    return isError;
   };
+  
   const handleLogin = (e) => {
     e.preventDefault();
     validation();
   };
-
 
   return (
     <div>
@@ -43,7 +54,7 @@ export default function Login() {
         <TextField
           name="email"
           error={!emailError}
-          helperText={!emailError ? "Enter email" : " "}
+          helperText={!emailError ? "Invalid email" : " "}
           onChange={handleEmail}
           label="Email ID"
           variant="outlined"
@@ -55,7 +66,7 @@ export default function Login() {
         <TextField
           name="password"
           error={!passwordError}
-          helperText={!passwordError ? "Enter your password" : ""}
+          helperText={!passwordError ? "Invalid Password !" : ""}
           onChange={handlePassword}
           label="Password"
           variant="outlined"

@@ -9,6 +9,11 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import "./Signin.css";
 
 export default function Signin() {
+const validEmail = new RegExp("^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$");
+const validPassword = new RegExp("^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$");
+const validName = new RegExp('^[A-Z]{1}[a-zA-Z\\s]{2,}$');
+const validMobile = new RegExp('^[0-9]{10}$'); 
+
   const [showPassword, setShowPassword] = React.useState("false");
   const [fName, setfName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -38,10 +43,27 @@ export default function Signin() {
 
   const validation = () => {
     let isError = false;
-    fNameError === "" ? setfNameError(true) : setfNameError(false);
-    email === "" ? setEmailError(false) : setEmailError(true);
-    password === "" ? setPasswordError(false) : setPasswordError(true);
-    mobile === "" ? setmobileError(false) : setmobileError(true);
+    if (fName === "" || !validName.test(fName)) {
+        setfNameError(false);
+      } else {
+        setfNameError(true);
+      }
+    if (email === "" || !validEmail.test(email)) {
+        setEmailError(false);
+      } else {
+        setEmailError(true);
+      }
+      if (password === "" || !validPassword.test(password)) {
+        setPasswordError(false);
+      } else {
+        setPasswordError(true);
+      }
+      if (mobile === "" || !validMobile.test(mobile)) {
+        setmobileError(false);
+      } else {
+        setmobileError(true);
+      }
+
 
     isError = fNameError || emailError || passwordError || mobileError;
     return isError;
@@ -57,7 +79,7 @@ export default function Signin() {
         <TextField
           name="fName"
           error={!fNameError}
-          helperText={!fNameError ? "Enter your name" : ""}
+          helperText={!fNameError ? "Invalid name" : ""}
           label="Full Name"
           variant="outlined"
           size="small"
@@ -69,7 +91,7 @@ export default function Signin() {
         <TextField
           name="email"
           error={!emailError}
-          helperText={!emailError ? "Enter your email" : ""}
+          helperText={!emailError ? "Invalid Email" : ""}
           onChange={handleEmail}
           label="Email id"
           variant="outlined"
@@ -81,7 +103,7 @@ export default function Signin() {
         <TextField
           name="password"
           error={!passwordError}
-          helperText={!passwordError ? "Enter your password" : ""}
+          helperText={!passwordError ? "password is Invalid" : ""}
           onChange={handlePassword}
           label="Password"
           variant="outlined"
@@ -106,7 +128,7 @@ export default function Signin() {
         <TextField
           name="mobile"
           error={!mobileError}
-          helperText={!mobileError ? "Enter your phoneNo" : ""}
+          helperText={!mobileError ? "Enter correct phoneNo" : ""}
           label="Mobile Number"
           variant="outlined"
           fullWidth
