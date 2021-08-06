@@ -9,18 +9,54 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
 export default function Login() {
   const [showPassword, setShowPassword] = React.useState("false");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [emailError, setEmailError] = React.useState("false");
+  const [passwordError, setPasswordError] = React.useState("false");
 
   const handleClickShowPassword = () => {
-     (showPassword) ? setShowPassword(false): setShowPassword(true);
-    };
-    
+    showPassword ? setShowPassword(false) : setShowPassword(true);
+  };
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+  const validation = () => {
+    let isError = false;
+     email === "" ? setEmailError(false) : setEmailError(true);
+    password === "" ? setPasswordError(false) : setPasswordError(true);
+
+      isError = emailError || passwordError;
+    return (isError);
+  };
+  const handleLogin = (e) => {
+    e.preventDefault();
+    validation();
+  };
+
+
   return (
     <div>
       <div className="textfield">
-        <TextField label="Email ID" variant="outlined" size="small" fullWidth />
+        <TextField
+          name="email"
+          error={!emailError}
+          helperText={!emailError ? "Enter email" : " "}
+          onChange={handleEmail}
+          label="Email ID"
+          variant="outlined"
+          size="small"
+          fullWidth
+        />
       </div>
       <div className="textfield">
         <TextField
+          name="password"
+          error={!passwordError}
+          helperText={!passwordError ? "Enter your password" : ""}
+          onChange={handlePassword}
           label="Password"
           variant="outlined"
           size="small"
@@ -44,6 +80,7 @@ export default function Login() {
         fullWidth
         className="login-btn"
         style={{ backgroundColor: "#802F34", color: "#ffffff" }}
+        onClick={handleLogin}
       >
         Login
       </Button>

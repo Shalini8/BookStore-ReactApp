@@ -36,7 +36,7 @@
   top: 166px;
   left: 658px;
   width: 389px;
-  height: 390px;
+  height: 420px;
   background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 5px 15px #00000029;
   border: 1px solid #e4e4e4;
@@ -48,6 +48,6 @@
   justify-content: space-around;
 }
 .lsContainer {
-  margin-top: -10px;
+  margin-top: -25px;
   padding: 20px;
 }
