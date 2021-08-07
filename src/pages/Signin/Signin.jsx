@@ -5,14 +5,17 @@ import IconButton from "@material-ui/core/IconButton";
 import { InputAdornment } from "@material-ui/core";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
-
 import "./Signin.css";
+import UserService from "../../services/UserService";
+const service = new UserService();
 
 export default function Signin() {
-const validEmail = new RegExp("^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$");
-const validPassword = new RegExp("^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$");
-const validName = new RegExp('^[A-Z]{1}[a-zA-Z\\s]{2,}$');
-const validMobile = new RegExp('^[0-9]{10}$'); 
+  const validEmail = new RegExp(
+    "^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$"
+  );
+  const validPassword = new RegExp("^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$");
+  const validName = new RegExp("^[A-Z]{1}[a-zA-Z\\s]{2,}$");
+  const validMobile = new RegExp("^[0-9]{10}$");
 
   const [showPassword, setShowPassword] = React.useState("false");
   const [fName, setfName] = React.useState("");
@@ -44,33 +47,53 @@ const validMobile = new RegExp('^[0-9]{10}$');
   const validation = () => {
     let isError = false;
     if (fName === "" || !validName.test(fName)) {
-        setfNameError(false);
-      } else {
-        setfNameError(true);
-      }
+      setfNameError(false);
+    } else {
+      setfNameError(true);
+    }
     if (email === "" || !validEmail.test(email)) {
-        setEmailError(false);
-      } else {
-        setEmailError(true);
-      }
-      if (password === "" || !validPassword.test(password)) {
-        setPasswordError(false);
-      } else {
-        setPasswordError(true);
-      }
-      if (mobile === "" || !validMobile.test(mobile)) {
-        setmobileError(false);
-      } else {
-        setmobileError(true);
-      }
-
+      setEmailError(false);
+    } else {
+      setEmailError(true);
+    }
+    if (password === "" || !validPassword.test(password)) {
+      setPasswordError(false);
+    } else {
+      setPasswordError(true);
+    }
+    if (mobile === "" || !validMobile.test(mobile)) {
+      setmobileError(false);
+    } else {
+      setmobileError(true);
+    }
 
     isError = fNameError || emailError || passwordError || mobileError;
     return isError;
   };
   const handleSignup = (e) => {
     e.preventDefault();
-    validation();
+
+    var isValid = validation();
+    if (!isValid) {
+    } else {
+      let data = {
+        fullName: fName,
+        email: email,
+        password: password,
+        phone: mobile,
+      };
+      console.log(data);
+      service
+        .signup(data)
+        .then((res) => {
+          console.log(res);
+          localStorage.setItem("token", res.result.accessToken);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+    
   };
 
   return (

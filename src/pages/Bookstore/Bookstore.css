@@ -7,10 +7,10 @@
   width: 100%;
   height: 100vh;
   background-color: #919191;
-  /* opacity: 0.31; */
 }
 .container {
   display: flex;
+  align-items: center;
   top: 185px;
   left: 320px;
   width: 600px;
@@ -29,10 +29,9 @@
   display: flex;
   flex-direction: column;
   padding: 40px;
-  display: flex;
 }
 .formContainer {
-  margin-top: -50px;
+  /* margin-top: -50px; */
   top: 166px;
   left: 658px;
   width: 389px;
@@ -48,6 +47,28 @@
   justify-content: space-around;
 }
 .lsContainer {
-  margin-top: -23px;
+  /* margin-top: -20px; */
   padding: 20px;
+}
+@media only screen and (max-width:600px) {
+    .image{
+        display: none;
+    }
+    .formContainer{
+        width: 100%;
+        height: 110vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+    .container{
+        height: 100%;
+        top: 0;
+        left: 0;
+
+    }
+    /* .mainContainer{
+        height: 100%;
+    } */
 }

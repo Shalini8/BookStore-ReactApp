@@ -6,6 +6,11 @@ import IconButton from "@material-ui/core/IconButton";
 import { InputAdornment } from "@material-ui/core";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import { useHistory } from "react-router";
+
+import UserService from "../../services/UserService"
+const service = new UserService();
+
 
 export default function Login() {
   const validEmail = new RegExp("^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$");
@@ -16,6 +21,7 @@ export default function Login() {
   const [password, setPassword] = React.useState("");
   const [emailError, setEmailError] = React.useState("false");
   const [passwordError, setPasswordError] = React.useState("false");
+  const history = useHistory();
 
   const handleClickShowPassword = () => {
     showPassword ? setShowPassword(false) : setShowPassword(true);
@@ -44,8 +50,25 @@ export default function Login() {
   };
   
   const handleLogin = (e) => {
-    e.preventDefault();
-    validation();
+    let isValid = validation();
+    if (!isValid) {
+      console.log("failed");
+    } else {
+      let data = {
+        email: email,
+        password: password,
+      };
+      service
+        .login(data)
+        .then((res) => {
+          console.log(res);
+          localStorage.setItem("token", res.data.result.accessToken);
+         history.push("/home");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   return (
