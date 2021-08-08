@@ -13,7 +13,10 @@ class UserService {
     };
    login = (data) =>{
     return axios.postMethod(`${baseUrl}bookstore_user/login`, data, config);
+    } 
+   getBooks = () => {
+    return axios.getMethod(`${baseUrl}bookstore_user/get/book`);
+  };
 
-   } 
 }
 export default UserService;
