@@ -45,15 +45,12 @@
     margin: 0;
     font-size: small;
 }
-/* .profile-icon{
-    padding: 0;
-} */
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   .search-div {
     margin: 0;
   }
   .book-icon {
     display: none;
   }
-}
+} */
