@@ -15,13 +15,13 @@
   display: flex;
 }
 
-.header-text,
-.header-tag {
+.header-text1,
+.header-tag11 {
   margin: 0;
   padding: 0;
 }
-.header-tag {
-  margin-top: 10px;
+.header-tag11 {
+  font-size: smaller;
 }
 
 .books-container {

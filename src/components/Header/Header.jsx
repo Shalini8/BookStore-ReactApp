@@ -49,7 +49,6 @@ function Header(props) {
   );
 }
 function mapStateToProps(state) {
-  console.log(state);
   return {
     searchData: state.searchBarReducer.searchData,
   };

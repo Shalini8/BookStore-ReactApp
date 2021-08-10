@@ -5,6 +5,7 @@ import StarIcon from "@material-ui/icons/Star";
 import bookImage from "./bookImage.png";
 import "../DisplayBooks/DisplayBooks.css";
 import { useHistory } from "react-router";
+import bookDesReducer from './../../reducers/BookDesReducer';
 
 function DisplayBooks(props) {
   const [booksList, setBooksList] = useState(props.books);
@@ -12,7 +13,7 @@ function DisplayBooks(props) {
   const history = useHistory();
 
   const handleBookDes = (e) => {
-    console.log(e.target.id);
+    props.dispatch({ type: "BookDesc", bookData: e.target.id });
     history.push("/description");
   };
 
@@ -33,8 +34,8 @@ function DisplayBooks(props) {
     <div>
       <div className="display-books-header">
         <div className="header-text-div">
-          <h2 className="header-text">Books</h2>
-          <p className="header-tag">(128 items)</p>
+          <h5 className="header-text1">Books</h5>
+          <p className="header-tag11">(128 items)</p>
         </div>
 
         <select name="sortBy">
@@ -55,7 +56,8 @@ function DisplayBooks(props) {
                 }}
               >
                 <CardContent style={{ padding: "0" }}>
-                  <div className="book-image">
+                  <div className="book-image" 
+                      >
                     <img
                       className="image1"
                       src={bookImage}
@@ -87,6 +89,7 @@ function mapStateToProps(state) {
   console.log(state);
   return {
     searchData: state.searchBarReducer.searchData,
+    bookData: state.bookDesReducer.bookData
   };
 }
 export default connect(mapStateToProps)(DisplayBooks);
