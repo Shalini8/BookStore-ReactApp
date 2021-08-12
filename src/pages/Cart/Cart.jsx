@@ -20,13 +20,13 @@ export default function Cart() {
   const [mobile, setMobile] = React.useState("");
   const [city, setCity] = React.useState("");
   const [state, setState] = React.useState("");
+  const [type, setType] = React.useState("");
+  const [area, setArea] = React.useState("");
 
   const [fNameError, setfNameError] = React.useState("false");
   const [mobileError, setmobileError] = React.useState("false");
   const [cityError, setCityError] = React.useState("false");
   const [stateError, setStateError] = React.useState("false");
-
-  const [quantity, setQuantity] = useState("");
 
   const handlefName = (e) => {
     setfName(e.target.value);
@@ -40,9 +40,15 @@ export default function Cart() {
   const handleState = (e) => {
     setState(e.target.value);
   };
+  const handleRadio = (e) => {
+    setType(e.target.value);
+  };
 
   const handleClick = () => {
     setOpenCustDetails(false);
+  };
+  const handleArea = (e) => {
+    setArea(e.target.value);
   };
 
   const validation = () => {
@@ -75,9 +81,25 @@ export default function Cart() {
     e.preventDefault();
     var isValid = validation();
     if (!isValid) {
-      setOpenOrderSum(false);
-    } else {
+      console.log("custfail");
       setOpenOrderSum(true);
+    } else {
+        console.log("details" , type,area,city,state);
+      let data = {
+        addressType: type,
+        fullAddress: area,
+        city: city,
+        state: state,
+      };
+      service
+        .customerDetails(data)
+        .then((res) => {
+          console.log(res);
+          setOpenOrderSum(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   };
 
@@ -93,11 +115,11 @@ export default function Cart() {
       });
   };
   function incrementValue(book) {
-    let value = book.quantityToBuy ;
+    let value = book.quantityToBuy;
     if (value < 10) {
-        value = value + 1;
-        console.log(value);
-      }
+      value = value + 1;
+      console.log(value);
+    }
     let data = {
       quantityToBuy: value,
     };
@@ -108,12 +130,12 @@ export default function Cart() {
         getCartItems();
       })
       .catch((err) => {
-        console.log( err);
+        console.log(err);
       });
   }
 
   function decrementValue(book) {
-    let value = book.quantityToBuy ;
+    let value = book.quantityToBuy;
     if (value > 1) {
       value = value - 1;
     }
@@ -127,7 +149,7 @@ export default function Cart() {
         getCartItems();
       })
       .catch((err) => {
-        console.log( err);
+        console.log(err);
       });
   }
 
@@ -223,6 +245,8 @@ export default function Cart() {
                 <div className="address">
                   <h5 className="work-tag">1.Work</h5>
                   <TextareaAutosize
+                    name="area"
+                    onChange={handleArea}
                     placeholder="Address"
                     style={{
                       width: "100%",
@@ -261,6 +285,7 @@ export default function Cart() {
                     <RadioGroup
                       aria-label="type"
                       name="type"
+                      onChange={handleRadio}
                       style={{
                         display: "flex",
                         flexDirection: "row",
@@ -269,17 +294,17 @@ export default function Cart() {
                       }}
                     >
                       <FormControlLabel
-                        value="home"
+                        value="Home"
                         control={<Radio />}
                         label="Home"
                       />
                       <FormControlLabel
-                        value="work"
+                        value="Office"
                         control={<Radio />}
                         label="Work"
                       />
                       <FormControlLabel
-                        value="other"
+                        value="Other"
                         control={<Radio />}
                         label="Other"
                       />
