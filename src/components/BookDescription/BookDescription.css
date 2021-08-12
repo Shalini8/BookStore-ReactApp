@@ -28,6 +28,7 @@
   background-color: #a03037;
   color: white;
   font-size: x-small;
+  pointer-events: cursor;
 }
 .wish {
   display: flex;

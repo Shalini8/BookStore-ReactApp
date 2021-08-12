@@ -1,0 +1,42 @@
+.wish-container {
+  display: flex;
+  justify-content: center;
+}
+.wish-head {
+  background-color: #f5f5f5;
+  font-weight: 500;
+  padding: 20px 20px;
+  margin: 0;
+  text-align: start;
+}
+.wishlistitem-container {
+  width: 600px;
+  height: auto;
+  border: 1px solid #ccc;
+}
+.del-icon{
+    margin-top: 50px;
+    padding: 20px;
+    
+}
+.cart-image2{
+display: flex;
+justify-content: space-between;
+
+}
+.wishimg-details{
+    display: flex;
+}
+.add-del{
+    display: flex;
+}
+.addbag1 {
+    padding: 8px;
+    margin-top: 70px;
+    width: 60px;
+    height: 15px;
+    background-color: #a03037;
+    color: white;
+    font-size: x-small;
+    border-radius: 5px;
+  }

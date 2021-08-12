@@ -52,6 +52,7 @@ function BookDescription(props) {
       .addToWishList(productid)
       .then((res) => {
         console.log(res);
+        history.push("/wishlist");
       })
       .catch((err) => {
         console.log(err);
