@@ -9,7 +9,6 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
-import FormLabel from "@material-ui/core/FormLabel";
 
 const service = new UserService();
 
@@ -151,24 +150,24 @@ export default function Cart() {
               <div key={index} className="book-image2">
                 <img className="image2" src={bookImage} alt="book" />
                 <div className="details-cart">
-                  <h3 className="head-tag">{book.product_id.bookName}</h3>
+                  <h3 className="head-tagname">{book.product_id.bookName}</h3>
                   <p className="head-tag-para">by {book.product_id.author}</p>
                   <h5 className="head-tag">Rs {book.product_id.price}</h5>
-                  <div class="container1">
+                  <div className="container1">
                     <input
                       type="button"
-                      onclick={() => decrementValue(book)}
-                      value="-"
+                      onClick={() => decrementValue(book)}
+                      defaultValue="-"
                     />
                     <input
                       type="text"
-                      value={book.quantityToBuy}
+                      defaultValue={book.quantityToBuy}
                       size="1"
                     />
                     <input
                       type="button"
                       onClick={() => incrementValue(book)}
-                      value="+"
+                      defaultValue="+"
                     />
                   </div>
                 </div>
@@ -315,7 +314,7 @@ export default function Cart() {
                 <div key={index} className="book-image2">
                   <img className="image2" src={bookImage} alt="book" />
                   <div className="details-cart">
-                    <h3 className="head-tag">{book.product_id.bookName}</h3>
+                    <h3 className="head-tagname">{book.product_id.bookName}</h3>
                     <p className="head-tag-para">by {book.product_id.author}</p>
                     <h5 className="head-tag">Rs {book.product_id.price}</h5>
                   </div>
