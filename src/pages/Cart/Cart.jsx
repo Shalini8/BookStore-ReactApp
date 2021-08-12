@@ -167,7 +167,7 @@ export default function Cart() {
         </div>
         <div className="main-container">
           <div className="cart-container">
-            <p className="mycart-tag">My Cart(1)</p>
+            <p className="mycart-tag">My Cart({cart.length})</p>
             {cart.map((book, index) => (
               <div key={index} className="book-image2">
                 <img className="image2" src={bookImage} alt="book" />

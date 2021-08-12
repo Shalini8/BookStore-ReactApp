@@ -32,13 +32,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90px;
+    width: 80px;
 }
 .cart-icon{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90px;
+    width: 80px;
 
 }
 .header-tag {
