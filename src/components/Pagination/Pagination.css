@@ -1,0 +1,22 @@
+.pagination1{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+}
+.page-link:hover{
+    color:#fff;
+    background-color: brown;
+}
+.page-link:active{
+    background-color: brown;
+
+}
+.page-link{
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    text-decoration: none;
+    list-style-type: none;
+}

@@ -10,10 +10,19 @@ export default function HomePage() {
 
   const [books, setBooks] = useState([]);
   const [count, setCount] = useState();
+  const [perPage] = useState(6);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const receiveInputPage = (data)=>{
-    console.log(data);
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
   }
+
+
+  const indexOfLastPost = currentPage * perPage;
+  const indexOfFirstPost = indexOfLastPost - perPage;
+  const currentBooks = books.slice(indexOfFirstPost, indexOfLastPost);
+
   const getBooks = () => {
     service
       .getBooks()
@@ -34,8 +43,8 @@ export default function HomePage() {
   return (
     <div>
       <Header />
-      <DisplayBooks books={books}  />
-      <Pagination pageCount={count} listenToPage={receiveInputPage}/>
+      <DisplayBooks books={currentBooks}  />
+      <Pagination pageCount={count}  perPage={perPage} paginate={paginate}/>
     </div>
   );
 }
