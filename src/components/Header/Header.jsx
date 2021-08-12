@@ -18,6 +18,9 @@ function Header(props) {
   const handleLogo = (e) => {
     history.push("/home");
   };
+  const handleClickCart = (e) =>{
+    history.push("/cart");
+  }
 
   return (
     <div className="top-header">
@@ -40,7 +43,7 @@ function Header(props) {
         </div>
         <Divider orientation="vertical" flexItem />
         <div className="cart-icon">
-          <CartIcon />
+          <CartIcon  onClick={handleClickCart}/>
           <p className="header-tag">Cart</p>
         </div>
         <Divider orientation="vertical" flexItem />

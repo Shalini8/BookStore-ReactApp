@@ -44,5 +44,12 @@ class UserService {
       config
     );
   };
+  cartitemQuantity = (cartitem_id, data) => {
+    return axios.putMethod(
+      `${baseUrl}bookstore_user/cart_item_quantity/${cartitem_id}`,
+      data,
+      config
+    );
+  };
 }
 export default UserService;

@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import "../BookDescription/BookDescription.css";
 import Header from "../Header/Header";
 import StarIcon from "@material-ui/icons/Star";
+import { useHistory } from "react-router";
+
 
 import bookImage from "../DisplayBooks/bookImage.png";
 import FavoriteIcon from "@material-ui/icons/Favorite";
@@ -12,6 +14,8 @@ const service = new UserService();
 
 function BookDescription(props) {
   const [books, setBooks] = useState([]);
+  const history = useHistory();
+
 
   const getBooks = () => {
     service
@@ -37,6 +41,7 @@ function BookDescription(props) {
       .addToCart(productid)
       .then((res) => {
         console.log(res);
+        history.push("/cart");
       })
       .catch((err) => {
         console.log(err);
