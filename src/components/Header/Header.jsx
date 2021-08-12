@@ -1,5 +1,6 @@
 import React from "react";
 import "../Header/Header.css";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 import { connect } from "react-redux";
 
 import SearchIcon from "@material-ui/icons/Search";
@@ -18,9 +19,12 @@ function Header(props) {
   const handleLogo = (e) => {
     history.push("/home");
   };
-  const handleClickCart = (e) =>{
+  const handleClickCart = (e) => {
     history.push("/cart");
-  }
+  };
+  const handleClickWishList = (e) => {
+    history.push("/wishlist");
+  };
 
   return (
     <div className="top-header">
@@ -43,8 +47,13 @@ function Header(props) {
         </div>
         <Divider orientation="vertical" flexItem />
         <div className="cart-icon">
-          <CartIcon  onClick={handleClickCart}/>
+          <CartIcon onClick={handleClickCart} />
           <p className="header-tag">Cart</p>
+        </div>
+        <Divider orientation="vertical" flexItem />
+        <div className="cart-icon">
+          <FavoriteIcon onClick={handleClickWishList} />
+          <p className="header-tag">Wishlist</p>
         </div>
         <Divider orientation="vertical" flexItem />
       </div>

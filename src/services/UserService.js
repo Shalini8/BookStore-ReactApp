@@ -51,5 +51,10 @@ class UserService {
       config
     );
   };
+  customerDetails = (data) => {
+    return axios.putMethod(
+      `${baseUrl}bookstore_user/edit_user`,data,config);
+  };
+  
 }
 export default UserService;
