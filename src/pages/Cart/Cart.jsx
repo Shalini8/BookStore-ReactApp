@@ -3,16 +3,19 @@ import UserService from "../../services/UserService";
 import Header from "../../components/Header/Header";
 import "../Cart/Cart.css";
 import bookImage from "./bookImage.png";
-
 import { Button, TextareaAutosize, TextField } from "@material-ui/core";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
+import { useHistory } from "react-router";
+
 
 const service = new UserService();
 
 export default function Cart() {
+  const history = useHistory();
+
   const [cart, setCart] = useState([]);
   const [opencustDetails, setOpenCustDetails] = useState(true);
   const [openOrderSum, setOpenOrderSum] = useState(true);
@@ -101,6 +104,9 @@ export default function Cart() {
           console.log(err);
         });
     }
+  };
+  const handleCheckout = () => {
+   history.push("/orderplaced");
   };
 
   const getCartItems = () => {
@@ -354,6 +360,7 @@ export default function Cart() {
                     padding: "7px 30px",
                     marginBottom: "10px",
                   }}
+                  onClick={handleCheckout}
                 >
                   Checkout
                 </Button>
