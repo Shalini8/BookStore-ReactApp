@@ -55,6 +55,19 @@ class UserService {
     return axios.putMethod(
       `${baseUrl}bookstore_user/edit_user`,data,config);
   };
+  removeFromCart = (book_id) => {
+    return axios.deleteMethod(
+      `${baseUrl}bookstore_user/remove_cart_item/${book_id}`,
+      config
+    );
+  };
+
+  removeFromWishlist = (book_id) => {
+    return axios.deleteMethod(
+      `${baseUrl}bookstore_user/remove_wishlist_item/${book_id}`,
+      config
+    );
+  };
   
 }
 export default UserService;

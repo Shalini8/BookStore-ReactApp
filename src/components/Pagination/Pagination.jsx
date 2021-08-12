@@ -1,6 +1,5 @@
 import React from "react";
 import { useEffect } from "react";
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import "../Pagination/Pagination.css";
 import { Button } from "@material-ui/core";
 

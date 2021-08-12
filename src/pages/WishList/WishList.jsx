@@ -3,7 +3,7 @@ import UserService from "../../services/UserService";
 import bookImage from ".././Cart/bookImage.png";
 import DeleteIcon from "@material-ui/icons/Delete";
 import "../WishList/WishList.css";
-import Header from "../../components/Header/Header"
+import Header from "../../components/Header/Header";
 import { useHistory } from "react-router";
 
 const service = new UserService();
@@ -33,7 +33,19 @@ export default function WishList() {
       .addToCart(productid)
       .then((res) => {
         console.log(res);
+        handleRemove(productid);
         history.push("/cart");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const handleRemove = (id) => {
+    service
+      .removeFromWishlist(id)
+      .then((res) => {
+        console.log("remove wishitem",res)
+        getWishlistItems();
       })
       .catch((err) => {
         console.log(err);
@@ -71,7 +83,9 @@ export default function WishList() {
                 <DeleteIcon
                   className="del-icon"
                   style={{ size: "small", color: "#ccc" }}
+                  onClick={() => handleRemove(book.product_id._id)}
                 />
+                
               </div>
             </div>
           ))}

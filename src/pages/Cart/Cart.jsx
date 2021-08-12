@@ -10,7 +10,6 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import { useHistory } from "react-router";
 
-
 const service = new UserService();
 
 export default function Cart() {
@@ -87,7 +86,7 @@ export default function Cart() {
       console.log("custfail");
       setOpenOrderSum(true);
     } else {
-        console.log("details" , type,area,city,state);
+      console.log("details", type, area, city, state);
       let data = {
         addressType: type,
         fullAddress: area,
@@ -106,7 +105,7 @@ export default function Cart() {
     }
   };
   const handleCheckout = () => {
-   history.push("/orderplaced");
+    history.push("/orderplaced");
   };
 
   const getCartItems = () => {
@@ -158,6 +157,17 @@ export default function Cart() {
         console.log(err);
       });
   }
+  const handleRemoveCartItem = (id) => {
+    service
+      .removeFromCart(id)
+      .then((res) => {
+        console.log("remove cartitem", res);
+        getCartItems();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   useEffect(() => {
     getCartItems();
@@ -181,6 +191,7 @@ export default function Cart() {
                   <h3 className="head-tagname">{book.product_id.bookName}</h3>
                   <p className="head-tag-para">by {book.product_id.author}</p>
                   <h5 className="head-tag">Rs {book.product_id.price}</h5>
+                  <div className='cart-buttons'>
                   <div className="container1">
                     <input
                       type="button"
@@ -197,7 +208,15 @@ export default function Cart() {
                       onClick={() => incrementValue(book)}
                       defaultValue="+"
                     />
+                   
                   </div>
+                  <p
+                      className="remove"
+                      onClick={() => handleRemoveCartItem(book._id)}
+                    >
+                      Remove
+                    </p>
+                    </div>
                 </div>
               </div>
             ))}

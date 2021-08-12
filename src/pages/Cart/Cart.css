@@ -152,4 +152,12 @@
 .container1{
     margin-top: 10px;
 }
-
+.remove{
+  padding-left: 10px;
+  font: Roboto;
+  font-weight: 500;
+  font-size: 13px;
+}
+.cart-buttons{
+  display: flex;
+}
