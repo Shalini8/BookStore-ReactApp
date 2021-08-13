@@ -1,6 +1,7 @@
 .wish-container {
   display: flex;
   justify-content: center;
+  height: 100vh;
 }
 .wish-head {
   background-color: #f5f5f5;
@@ -11,7 +12,7 @@
 }
 .wishlistitem-container {
   width: 600px;
-  height: auto;
+  height: fit-content;
   border: 1px solid #ccc;
 }
 .del-icon{

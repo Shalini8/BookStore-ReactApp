@@ -5,6 +5,7 @@ import { Divider } from "@material-ui/core";
 import { useHistory } from "react-router";
 
 import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 export default function OrderPlaced() {
   const history = useHistory();
@@ -49,6 +50,7 @@ export default function OrderPlaced() {
           Continue Shopping
         </Button>
       </div>
+      <Footer/>
     </div>
   );
 }

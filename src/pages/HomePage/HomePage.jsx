@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import DisplayBooks from "../../components/DisplayBooks/DisplayBooks";
 import UserService from "../../services/UserService";
 import Pagination from "../../components/Pagination/Pagination";
+import Footer from "../../components/Footer/Footer";
 
 const service = new UserService();
 
@@ -45,6 +46,7 @@ export default function HomePage() {
       <Header />
       <DisplayBooks books={currentBooks}  />
       <Pagination pageCount={count}  perPage={perPage} paginate={paginate}/>
+      <Footer/>
     </div>
   );
 }

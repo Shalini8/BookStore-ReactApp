@@ -9,6 +9,7 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import { useHistory } from "react-router";
+import Footer from "../../components/Footer/Footer";
 
 const service = new UserService();
 
@@ -176,7 +177,7 @@ export default function Cart() {
   return (
     <div>
       <Header />
-      <div>
+      <div >
         <div className="header1-text1-div">
           <p className="header-text1">Home/</p>
           <h6 className="header-tag2">My Cart</h6>
@@ -191,32 +192,31 @@ export default function Cart() {
                   <h3 className="head-tagname">{book.product_id.bookName}</h3>
                   <p className="head-tag-para">by {book.product_id.author}</p>
                   <h5 className="head-tag">Rs {book.product_id.price}</h5>
-                  <div className='cart-buttons'>
-                  <div className="container1">
-                    <input
-                      type="button"
-                      onClick={() => decrementValue(book)}
-                      defaultValue="-"
-                    />
-                    <input
-                      type="text"
-                      defaultValue={book.quantityToBuy}
-                      size="1"
-                    />
-                    <input
-                      type="button"
-                      onClick={() => incrementValue(book)}
-                      defaultValue="+"
-                    />
-                   
-                  </div>
-                  <p
+                  <div className="cart-buttons">
+                    <div className="container1">
+                      <input
+                        type="button"
+                        onClick={() => decrementValue(book)}
+                        defaultValue="-"
+                      />
+                      <input
+                        type="text"
+                        defaultValue={book.quantityToBuy}
+                        size="1"
+                      />
+                      <input
+                        type="button"
+                        onClick={() => incrementValue(book)}
+                        defaultValue="+"
+                      />
+                    </div>
+                    <p
                       className="remove"
                       onClick={() => handleRemoveCartItem(book._id)}
                     >
                       Remove
                     </p>
-                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -388,6 +388,7 @@ export default function Cart() {
           )}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

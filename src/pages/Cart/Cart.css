@@ -3,10 +3,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: fit-content;
+
 }
 
+
 .cart-container {
-  margin-top: 30px;
+  /* margin-top: 30px; */
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;
@@ -14,8 +17,8 @@
   align-items: flex-start;
   padding: 0;
   width: 600px;
-  height: auto;
   border: 1px solid #ccc;
+  height: fit-content;
   /* padding: 10px; */
 }
 .header1-text1-div {

@@ -5,6 +5,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import "../WishList/WishList.css";
 import Header from "../../components/Header/Header";
 import { useHistory } from "react-router";
+import Footer from "../../components/Footer/Footer";
 
 const service = new UserService();
 
@@ -91,6 +92,7 @@ export default function WishList() {
           ))}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

@@ -3,7 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 90px;
+    margin-top: 0px;
+    height: 100vh;
 }
 .order-para{
     margin-top: 50px;
