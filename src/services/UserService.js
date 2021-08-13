@@ -52,8 +52,7 @@ class UserService {
     );
   };
   customerDetails = (data) => {
-    return axios.putMethod(
-      `${baseUrl}bookstore_user/edit_user`,data,config);
+    return axios.putMethod(`${baseUrl}bookstore_user/edit_user`, data, config);
   };
   removeFromCart = (book_id) => {
     return axios.deleteMethod(
@@ -68,6 +67,8 @@ class UserService {
       config
     );
   };
-  
+  addOrder = (data) => {
+    return axios.postMethod(`${baseUrl}bookstore_user/add/order`, data, config);
+  };
 }
 export default UserService;

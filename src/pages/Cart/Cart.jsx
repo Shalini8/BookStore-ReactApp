@@ -10,6 +10,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import { useHistory } from "react-router";
 import Footer from "../../components/Footer/Footer";
+import { DataUsageRounded } from "@material-ui/icons";
 
 const service = new UserService();
 
@@ -106,7 +107,29 @@ export default function Cart() {
     }
   };
   const handleCheckout = () => {
+    let orderArray =[];
+    for (let i = 0; i < cart.length; i++) {  
+    let bookDetails = {
+      product_id: cart[i]._id,
+      product_name: cart[i].product_id.bookName,
+      product_quantity: cart[i].quantityToBuy,
+      product_price: cart[i].product_id.price,
+    };
+    orderArray.push(bookDetails);
+  }
+    let data ={
+      orders:orderArray
+    }
+    service
+      .addOrder(data)
+      .then((res) => {
+      console.log("ordersuccess", res);
+    console.log(cart[0]._id);
     history.push("/orderplaced");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   };
 
   const getCartItems = () => {
@@ -177,7 +200,7 @@ export default function Cart() {
   return (
     <div>
       <Header />
-      <div >
+      <div>
         <div className="header1-text1-div">
           <p className="header-text1">Home/</p>
           <h6 className="header-tag2">My Cart</h6>
@@ -388,7 +411,7 @@ export default function Cart() {
           )}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

@@ -13,6 +13,7 @@ import { Button } from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
 
 import UserService from "../../services/UserService";
+import Footer from "../Footer/Footer";
 const service = new UserService();
 
 function BookDescription(props) {
@@ -182,6 +183,7 @@ function BookDescription(props) {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

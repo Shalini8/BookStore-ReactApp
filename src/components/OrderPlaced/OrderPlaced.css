@@ -7,13 +7,13 @@
     height: 100vh;
 }
 .order-para{
-    margin-top: 50px;
+    margin-top: 20px;
     text-align: center;
     display: flex;
     flex-wrap: nowrap;
 }
 .order-details{
-    margin-top: 50px;
+    margin-top: 30px;
     border: 1px solid #ccc;
     height: 100px;
     width: 600px;
@@ -28,6 +28,8 @@
 }
 .order-head{
     font-weight: 500;
+    margin: 0;
+    padding: 0;
 }
 .order-detail2{
     padding-right: 5px;
