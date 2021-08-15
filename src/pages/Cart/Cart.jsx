@@ -260,7 +260,7 @@ export default function Cart() {
           </div>
           {opencustDetails ? (
             <div className="addDetails-container">
-              <p className="header-tag">Address Details</p>
+              <p className="header-tagorder">Address Details</p>
             </div>
           ) : (
             <div className="customer-details">
@@ -378,7 +378,7 @@ export default function Cart() {
           )}
           {openOrderSum ? (
             <div className="orderSum-container">
-              <p className="header-tag">Order summary</p>
+              <p className="header-tagorder">Order summary</p>
             </div>
           ) : (
             <div className="cart-container">

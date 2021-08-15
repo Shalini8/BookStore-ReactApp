@@ -27,6 +27,7 @@ function Header(props) {
   };
 
   return (
+    <div className='first-con'>
     <div className="top-header">
       <img src={book} alt="book" className="book-icon" onClick={handleLogo} />
       <p className="header-book-tag">Bookstore</p>
@@ -57,6 +58,7 @@ function Header(props) {
         </div>
         <Divider orientation="vertical" flexItem />
       </div>
+    </div>
     </div>
   );
 }

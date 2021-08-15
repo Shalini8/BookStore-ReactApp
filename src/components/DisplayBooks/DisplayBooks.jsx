@@ -5,7 +5,6 @@ import StarIcon from "@material-ui/icons/Star";
 import bookImage from "./bookImage.png";
 import "../DisplayBooks/DisplayBooks.css";
 import { useHistory } from "react-router";
-import bookDesReducer from './../../reducers/BookDesReducer';
 
 function DisplayBooks(props) {
   const [booksList, setBooksList] = useState(props.books);

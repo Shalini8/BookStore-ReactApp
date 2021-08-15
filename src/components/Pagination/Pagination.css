@@ -2,7 +2,7 @@
     text-decoration: none;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     list-style-type: none;
 }
 .page-link:hover{
@@ -26,4 +26,10 @@
     padding: 10px 15px;
     border-color: #ccc;
     border: none;
+}
+@media only screen and (max-width: 600px){
+.page-btn {
+    margin: 0px;
+
+}
 }

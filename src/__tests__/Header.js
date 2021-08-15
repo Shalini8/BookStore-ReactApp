@@ -11,7 +11,7 @@ Enzyme.configure({ adapter: new Adapter() });
 describe("HomePage", () => {
   it("renders Header component", () => {
     const wrapper = shallow(<HomePage />);
-    expect(wrapper.find(Header)).toHaveLength(0);
+    expect(wrapper.find(Header)).toHaveLength(1);
   });
   it("renders DisplayBooks component", () => {
     const wrapper = shallow(<HomePage />);
