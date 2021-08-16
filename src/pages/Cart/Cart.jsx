@@ -245,7 +245,8 @@ export default function Cart() {
             ))}
             <div className="place-order">
               <Button
-                style={{
+              className="placeOrderBtn"
+              style={{
                   backgroundColor: "#3371b5",
                   color: "#fff",
                   borderRadius: "3px",

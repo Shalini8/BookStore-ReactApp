@@ -88,14 +88,26 @@
   color: white;
   background-color: green;
 }
+@media only screen and (max-width: 768px){
+  .books-container {
+    padding: 0;
+  }
+
+}
 @media only screen and (max-width: 600px){
 .books-container {
-    padding: 0px 0px;
+    padding: 0;
 }
 .display-books-header {
   padding: 10px 0px;
 }
 .page-btn {
   margin: 0px;
+}
+.books-container {
+  display: unset;
+}
+.one-book-container {
+  margin-left: 35px;
 }
 }

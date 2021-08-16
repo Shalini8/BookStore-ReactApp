@@ -172,4 +172,27 @@
   width: 3px;
   height: 3px;
 }
-
+@media only screen and (max-width:600px) {
+  .part1{
+    margin-left: 45px;
+  }
+.container2 {
+  display: unset;
+}
+.part2 {
+  width: 100%;
+  margin-left: 1px;
+}
+.custDetails-container {
+  padding-left: 15;
+  padding-right: 0;
+  width: 100%;
+}
+.views {
+  padding: 0px 0;
+  width: 100%;
+}
+.submit {
+  margin-left: unset;
+}
+}

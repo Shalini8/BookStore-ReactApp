@@ -11,3 +11,11 @@
     text-align: center;
     padding-left: 150px;
 }
+@media only screen and (max-width: 600px) {
+.footer-para {
+    padding-left: unset;
+}
+.footer-container{
+    padding: 0;
+}
+}

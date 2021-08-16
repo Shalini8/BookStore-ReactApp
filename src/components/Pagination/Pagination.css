@@ -2,7 +2,7 @@
     text-decoration: none;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
     list-style-type: none;
 }
 .page-link:hover{
@@ -31,5 +31,8 @@
 .page-btn {
     margin: 0px;
 
+}
+.pagination1{
+    /* justify-content: unset; */
 }
 }

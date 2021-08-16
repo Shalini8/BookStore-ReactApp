@@ -26,10 +26,10 @@ export default function Bookstore() {
         </div>
         <div className="formContainer">
           <div className="ls-btns">
-            <Button onClick={handleClick} style={{ color: color1 }}>
+            <Button className='loginBtn' onClick={handleClick} style={{ color: color1 }}>
               <h3>LOGIN</h3>
             </Button>
-            <Button onClick={handleClick} style={{ color: color2 }}>
+            <Button className='SigninBtn' onClick={handleClick} style={{ color: color2 }}>
               <h3>SIGNUP</h3>
             </Button>
           </div>
