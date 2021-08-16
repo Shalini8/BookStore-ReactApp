@@ -6,9 +6,8 @@
   color: #fff;
   padding: 10px;
 }
-.first-con{
+.first-con {
   width: 100%;
-
 }
 .book-icon {
   height: 30px;
@@ -17,7 +16,7 @@
 .search-div {
   margin-left: 200px;
   border-radius: 5px;
-  padding: 5px ;
+  padding: 5px;
   background-color: #ffffff;
   color: #a1a1a1;
   display: flex;
@@ -29,90 +28,74 @@
   width: 100%;
   outline: none;
 }
-.header-icons{
-    display: flex;
-    padding-left: 180px;
+.header-icons {
+  display: flex;
+  padding-left: 180px;
 }
 .profile-icon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
 }
-.cart-icon{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80px;
-
+.cart-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
 }
 .header-tag {
-    margin: 0;
-    font-size: small;
+  margin: 0;
+  font-size: small;
 }
 @media only screen and (max-width: 768px) {
   .search-div {
     margin-left: 50px;
   }
-
 }
 
 @media only screen and (max-width: 600px) {
   .top-header {
     width: 100%;
     padding: 0;
-   
   }
-  .header-icons{
+  .header-icons {
     padding-left: 50px;
     display: flex;
     justify-content: space-between;
-}
-.first-con{
-  width: 100%;
-  
-}
-.search-div {
-  margin: 10px 0px;
-}
-/* .header-icons{
-  padding: 0;
-}
+  }
+  .first-con {
+    width: 100%;
+  }
+  .search-div {
+    margin: 10px 0px;
+  }
 
-.profile-icon{
- width: 50px;
-}
-.header-tag{
-  display: none;
-}
-.cart-icon{
-  width: 0;
-} */
-.header-tag {
-  padding: 0px 0px;
-  display: none;
-}
-.books-container {
-  padding: 0;
-}
-.display-books-header {
-  padding: 0px;
-}
-.page-btn {
-  margin: 0;
-}
-.profile-icon {
-  padding: 5px;
-  width: 20px;
-  display: flex;
-  flex-direction: row;
-}
-.cart-icon {
-  padding: 5px;
-  width: 20px;
-  flex-direction: row;
-}
-.header-book-tag{
-  display: none;
-}
+  .header-tag {
+    padding: 0px 0px;
+    display: none;
+  }
+  .books-container {
+    padding: 0;
+  }
+  .display-books-header {
+    padding: 0px;
+  }
+  .page-btn {
+    margin: 0;
+  }
+  .profile-icon {
+    padding: 5px;
+    width: 20px;
+    display: flex;
+    flex-direction: row;
+  }
+  .cart-icon {
+    padding: 5px;
+    width: 20px;
+    flex-direction: row;
+  }
+  .header-book-tag {
+    display: none;
+  }
 }

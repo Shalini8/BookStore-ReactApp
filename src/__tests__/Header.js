@@ -7,6 +7,7 @@ import DisplayBooks from "./../components/DisplayBooks/DisplayBooks";
 import Footer from "./../components/Footer/Footer";
 
 Enzyme.configure({ adapter: new Adapter() });
+const headerComp = shallow(<Header/>)
 
 describe("HomePage", () => {
   it("renders Header component", () => {
@@ -21,4 +22,9 @@ describe("HomePage", () => {
     const wrapper = shallow(<HomePage />);
     expect(wrapper.find(Footer)).toHaveLength(1);
   });
+  it("test if search box is loaded ", () => {
+    expect(headerComp.find('.search-input')).toHaveLength(1);
+
+})
+
 });
