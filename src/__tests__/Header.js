@@ -1,30 +1,25 @@
 import "@testing-library/jest-dom";
 import Enzyme, { shallow, mount } from "enzyme";
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
-import HomePage from "./../pages/HomePage/HomePage";
-import Header from "./../components/Header/Header";
-import DisplayBooks from "./../components/DisplayBooks/DisplayBooks";
-import Footer from "./../components/Footer/Footer";
+import { Header } from "./../components/Header/Header";
 
 Enzyme.configure({ adapter: new Adapter() });
-const headerComp = shallow(<Header/>)
+const mockDispatch = jest.fn();
+const props = {
+    dispatch: mockDispatch,
+}
 
-describe("HomePage", () => {
-  it("renders Header component", () => {
-    const wrapper = shallow(<HomePage />);
-    expect(wrapper.find(Header)).toHaveLength(1);
-  });
-  it("renders DisplayBooks component", () => {
-    const wrapper = shallow(<HomePage />);
-    expect(wrapper.find(DisplayBooks)).toHaveLength(1);
-  });
-  it("renders Footer component", () => {
-    const wrapper = shallow(<HomePage />);
-    expect(wrapper.find(Footer)).toHaveLength(1);
-  });
-  it("test if search box is loaded ", () => {
-    expect(headerComp.find('.search-input')).toHaveLength(1);
+const headerComp = shallow(<Header {...props} />)
+const wrapper = shallow(<Header />)
 
-})
 
+describe("Header", () => {
+    it("test if search box is loaded ", () => {
+        expect(headerComp.find('.search-input')).toHaveLength(1);
+        const event = { target: { value: "Apple" } }
+        headerComp.find('.search-input').simulate("change", event);
+        expect(mockDispatch).toHaveBeenCalledWith({ "searchData": "Apple", "type": "Search" })
+    })
 });
+
+

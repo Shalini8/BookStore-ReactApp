@@ -10,7 +10,7 @@ import { Divider } from "@material-ui/core";
 import book from "./education.svg";
 import { useHistory } from "react-router";
 
-function Header(props) {
+export function Header(props) {
   const history = useHistory();
 
   const onChange = (e) => {

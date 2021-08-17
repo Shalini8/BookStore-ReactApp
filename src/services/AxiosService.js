@@ -4,8 +4,8 @@ class AxiosService {
   postMethod = (url, data, isHeaderRequired) => {
     return axios.post(url, data, isHeaderRequired);
   };
-  getMethod = (url, data, isHeaderRequired) => {
-    return axios.get(url, data, isHeaderRequired);
+  getMethod = (url ) => {
+   return axios.get(url);
   };
   putMethod = (url, data, isHeaderRequired) => {
     return axios.put(url, data, isHeaderRequired);

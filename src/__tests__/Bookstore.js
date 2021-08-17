@@ -24,5 +24,11 @@ describe("Bookstore Signin button", () => {
     wrapper.update();
     expect(wrapper.find(Signin)).toHaveLength(1);
   });
+  it("renders Login component", () => {
+    const LoginButton = wrapper.find(".loginBtn");
+    LoginButton.simulate("click");
+    wrapper.update();
+    expect(wrapper.find(Login)).toHaveLength(1);
+  });
 });
 
