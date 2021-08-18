@@ -91,4 +91,4 @@ function mapStateToProps(state) {
     bookData: state.bookDesReducer.bookData
   };
 }
-export default connect(mapStateToProps)(DisplayBooks);
+export default connect(mapStateToProps)(React.memo(DisplayBooks));

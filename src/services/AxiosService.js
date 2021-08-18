@@ -1,17 +1,17 @@
 import axios from "axios";
 
 class AxiosService {
-  postMethod = (url, data, isHeaderRequired) => {
-    return axios.post(url, data, isHeaderRequired);
+  postMethod = (url, data) => {
+    return axios.post(url, data);
   };
   getMethod = (url ) => {
    return axios.get(url);
   };
-  putMethod = (url, data, isHeaderRequired) => {
-    return axios.put(url, data, isHeaderRequired);
+  putMethod = (url, data) => {
+    return axios.put(url, data);
   };
-  deleteMethod = (url, isHeaderRequired) => {
-    return axios.delete(url, isHeaderRequired);
+  deleteMethod = (url) => {
+    return axios.delete(url);
   };
   
 }
